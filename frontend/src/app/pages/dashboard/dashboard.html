@@ -1,0 +1,84 @@
+<app-section-header
+  title="Dashboard"
+  description="Una vista clara del estado general de tu inventario."
+/>
+
+<div class="demo-notice">
+  <span class="notice-symbol" aria-hidden="true">i</span>
+  <span><strong>Datos de demostración.</strong> Las cifras y actividades de esta pantalla no corresponden a información real.</span>
+</div>
+
+<section class="metrics-grid" aria-label="Indicadores demostrativos">
+  @for (metric of metrics; track metric.label) {
+    <article class="metric-card" [class]="'metric-card tone-' + metric.tone">
+      <div class="metric-top">
+        <span class="metric-label">{{ metric.label }}</span>
+        <span class="metric-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path [attr.d]="metric.icon" />
+          </svg>
+        </span>
+      </div>
+      <div class="metric-value">{{ metric.value }}</div>
+      <div class="metric-bottom">
+        <span>{{ metric.note }}</span>
+        <span class="metric-demo">DEMO</span>
+      </div>
+    </article>
+  }
+</section>
+
+<section class="data-panels" aria-label="Actividad y alertas demostrativas">
+  <article class="panel movement-panel">
+    <div class="panel-heading">
+      <div>
+        <p class="panel-kicker">ACTIVIDAD</p>
+        <h2>Movimientos recientes</h2>
+      </div>
+      <span class="panel-tag">DEMO</span>
+    </div>
+
+    <div class="movement-list">
+      @for (movement of movements; track movement.code) {
+        <div class="movement-row">
+          <div class="movement-date">{{ movement.date }}</div>
+          <div class="movement-detail">
+            <strong>{{ movement.description }}</strong>
+            <span>{{ movement.code }}</span>
+          </div>
+          <span class="movement-type" [class.outgoing]="movement.type === 'Salida'">{{ movement.type }}</span>
+          <span class="movement-quantity" [class.outgoing]="movement.type === 'Salida'">{{ movement.quantity }}</span>
+        </div>
+      }
+    </div>
+
+    <p class="panel-footnote">Listado ilustrativo · No representa movimientos reales</p>
+  </article>
+
+  <article class="panel alerts-panel">
+    <div class="panel-heading">
+      <div>
+        <p class="panel-kicker">ATENCIÓN</p>
+        <h2>Stock bajo</h2>
+      </div>
+      <span class="alert-count">{{ lowStockProducts.length }} <small>DEMO</small></span>
+    </div>
+
+    <p class="alert-intro">Productos de ejemplo por debajo del stock mínimo configurado.</p>
+
+    <div class="alert-list">
+      @for (product of lowStockProducts; track product.code) {
+        <div class="alert-row">
+          <span class="alert-mark" aria-hidden="true"></span>
+          <div class="alert-product">
+            <strong>{{ product.name }}</strong>
+            <span>{{ product.code }} · mínimo {{ product.minimum }}</span>
+          </div>
+          <span class="remaining-stock">{{ product.remaining }} <small>un.</small></span>
+        </div>
+      }
+    </div>
+
+    <p class="panel-footnote">Alertas de ejemplo · No requiere acciones</p>
+  </article>
+</section>

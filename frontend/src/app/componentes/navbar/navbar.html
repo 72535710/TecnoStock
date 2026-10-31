@@ -1,0 +1,43 @@
+<aside class="sidebar">
+  <a class="brand" routerLink="/" aria-label="TecnoStock, ir al dashboard">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none">
+        <path d="M8 11h24v5H8zM8 19h15v5H8zM8 27h24v5H8z" fill="currentColor" />
+        <path d="M26 19h6v5h-6z" fill="currentColor" />
+      </svg>
+    </span>
+    <span class="brand-copy">
+      <strong>TECNO<span>STOCK</span></strong>
+      <small>S.A.C. · INVENTARIO</small>
+    </span>
+  </a>
+
+  <div class="nav-caption">ESPACIO DE TRABAJO</div>
+  <nav class="navigation" aria-label="Navegación principal">
+    @for (item of items; track item.path) {
+      <a
+        class="nav-link"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: item.exact ?? false }"
+        ariaCurrentWhenActive="page"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path [attr.d]="item.icon" />
+        </svg>
+        <span>{{ item.label }}</span>
+        @if (item.label === 'Dashboard') {
+          <span class="active-dot" aria-hidden="true"></span>
+        }
+      </a>
+    }
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="inventory-note">
+      <span class="note-icon" aria-hidden="true">i</span>
+      <p>Panel visual<br><strong>Datos de demostración</strong></p>
+    </div>
+    <p class="sidebar-version">TECNO STOCK <span>·</span> 01.0</p>
+  </div>
+</aside>
