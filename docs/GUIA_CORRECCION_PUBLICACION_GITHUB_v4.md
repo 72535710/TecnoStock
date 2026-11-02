@@ -9,7 +9,7 @@ Esta versión está adaptada al estado que reportó el usuario:
 - `C:\Dev\TecnoStock` ya contiene `.git`.
 - La rama local `main` todavía no tiene commits.
 - La cuenta de GitHub autenticada es `JBranez`.
-- El remoto `JBranez/TecnoStock-Entrega` ya fue creado y se verificó previamente con `gh api repos/JBranez/TecnoStock-Entrega --jq .full_name`.
+- El remoto `72535710/TecnoStock` ya fue creado y se verificó previamente con `gh api repos/72535710/TecnoStock --jq .full_name`.
 
 Por eso v4 NO intenta crear el repositorio. Solo valida el remoto con una llamada simple: `gh api repos/PROPIETARIO/REPOSITORIO`, sin `--jq`, `--input`, ni argumentos de creación.
 
@@ -20,11 +20,11 @@ Desde PowerShell:
 ```powershell
 cd C:\Dev\TecnoStock
 gh auth status
-gh api repos/JBranez/TecnoStock-Entrega --jq .full_name
+gh api repos/72535710/TecnoStock --jq .full_name
 git status
 ```
 
-La segunda orden debe devolver `JBranez/TecnoStock-Entrega`. El repositorio remoto debe estar vacío (sin README, licencia ni `.gitignore` creados desde GitHub). El script se detiene si encuentra ramas remotas para evitar sobrescribir contenido.
+La segunda orden debe devolver `72535710/TecnoStock`. El repositorio remoto debe estar vacío (sin README, licencia ni `.gitignore` creados desde GitHub). El script se detiene si encuentra ramas remotas para evitar sobrescribir contenido.
 
 ## Ejecutar
 
@@ -35,7 +35,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 & "$env:USERPROFILE\Downloads\Inicializar-Publicar-TecnoStock-v4.ps1" `
   -ProjectPath "C:\Dev\TecnoStock" `
-  -RepositoryFullName "JBranez/TecnoStock-Entrega" `
+  -RepositoryFullName "72535710/TecnoStock" `
   -Visibility private
 ```
 

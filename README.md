@@ -2,7 +2,7 @@
 
 Aplicación web para administrar productos, categorías, entradas, salidas, existencias, stock bajo e historial de inventario. El frontend Angular consume una API FastAPI que persiste la información en SQL Server 2022 Express instalado localmente en Windows.
 
-> **Repositorio:** [JBranez/TecnoStock-Entrega](https://github.com/JBranez/TecnoStock-Entrega)  
+> **Repositorio:** [72535710/TecnoStock](https://github.com/72535710/TecnoStock)  
 > **Instalación detallada:** [`docs/INSTALACION_EN_OTRA_PC.md`](docs/INSTALACION_EN_OTRA_PC.md)  
 > **Configuración detallada del motor SQL Server y SSMS:** [`docs/INSTALACION_SQL_SERVER_LOCAL.md`](docs/INSTALACION_SQL_SERVER_LOCAL.md)
 
@@ -143,7 +143,7 @@ Una vez que el repositorio sea público, no necesitas GitHub CLI, token ni `gh a
 
 ```powershell
 New-Item -ItemType Directory -Path 'C:\Dev' -Force | Out-Null
-git clone https://github.com/JBranez/TecnoStock-Entrega.git C:\Dev\TecnoStock
+git clone https://github.com/72535710/TecnoStock.git C:\Dev\TecnoStock
 Set-Location C:\Dev\TecnoStock
 ```
 

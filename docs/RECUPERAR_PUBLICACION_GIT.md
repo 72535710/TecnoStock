@@ -4,7 +4,7 @@
 
 El error `fatal: not a git repository` significa que `C:\Dev\TecnoStock` no contiene `.git`. El ZIP distribuye el código fuente, pero no incluye el historial Git. Por eso `git status`, `git branch` y el script de reparación que exige un repositorio existente no pueden funcionar todavía.
 
-El error `Could not resolve to a Repository` indica que `JBranez/TecnoStock-Entrega` no existe en GitHub o la cuenta autenticada no tiene acceso. La sesión `gh auth status` sí puede estar correcta al mismo tiempo.
+El error `Could not resolve to a Repository` indica que `72535710/TecnoStock` no existe en GitHub o la cuenta autenticada no tiene acceso. La sesión `gh auth status` sí puede estar correcta al mismo tiempo.
 
 ## Procedimiento corregido
 
@@ -25,7 +25,7 @@ gh api user --jq .login
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 & "$env:USERPROFILE\Downloads\Inicializar-Publicar-TecnoStock.ps1" `
   -ProjectPath "C:\Dev\TecnoStock" `
-  -RepositoryFullName "JBranez/TecnoStock-Entrega" `
+  -RepositoryFullName "72535710/TecnoStock" `
   -Visibility private
 ```
 
@@ -46,8 +46,8 @@ cd C:\Dev\TecnoStock
 git status
 git branch -vv
 git log --graph --oneline --decorate --all -40
-gh repo view JBranez/TecnoStock-Entrega
-gh pr list --repo JBranez/TecnoStock-Entrega --state all
+gh repo view 72535710/TecnoStock
+gh pr list --repo 72535710/TecnoStock --state all
 ```
 
 ## Si el script se detiene

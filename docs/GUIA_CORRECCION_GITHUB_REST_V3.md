@@ -17,7 +17,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 & "$env:USERPROFILE\Downloads\Inicializar-Publicar-TecnoStock-REST-v3.ps1" `
   -ProjectPath "C:\Dev\TecnoStock" `
-  -RepositoryFullName "JBranez/TecnoStock-Entrega" `
+  -RepositoryFullName "72535710/TecnoStock" `
   -Visibility private
 ```
 
@@ -28,7 +28,7 @@ No elimines `.git`, no ejecutes `git init` otra vez y no borres archivos del pro
 - Confirmar la sesión de `gh` y la cuenta autenticada.
 - Detectar que `.git` existe, pero no tiene commits, y continuar.
 - Consultar el repositorio remoto por REST.
-- Si no existe, crear `JBranez/TecnoStock-Entrega` usando `POST /user/repos` y un JSON temporal.
+- Si no existe, crear `72535710/TecnoStock` usando `POST /user/repos` y un JSON temporal.
 - Configurar `origin`, crear el commit inicial y publicar `main`.
 - Crear las ramas y commits organizados por base de datos, backend, frontend y documentación.
 - Publicar las ramas, abrir PRs y, si está permitido, intentar integrarlos.
@@ -50,7 +50,7 @@ gh api /user --jq .login
 Y comprobar si el repo existe:
 
 ```powershell
-gh api repos/JBranez/TecnoStock-Entrega --jq .full_name
+gh api repos/72535710/TecnoStock --jq .full_name
 ```
 
 Un 404 aquí significa que el repositorio no existe o no es visible para la cuenta autenticada. Un 403 durante la creación suele indicar restricciones/permisos o límites de GitHub; un 422 suele indicar que el nombre ya existe o que la solicitud no pasa la validación.
@@ -61,8 +61,8 @@ Un 404 aquí significa que el repositorio no existe o no es visible para la cuen
 git status
 git branch -vv
 git log --graph --oneline --decorate --all -40
-gh api repos/JBranez/TecnoStock-Entrega --jq .full_name
-gh pr list --repo JBranez/TecnoStock-Entrega --state all
+gh api repos/72535710/TecnoStock --jq .full_name
+gh pr list --repo 72535710/TecnoStock --state all
 ```
 
 ## Nota de seguridad

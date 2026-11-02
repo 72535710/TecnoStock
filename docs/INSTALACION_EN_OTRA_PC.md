@@ -2,7 +2,7 @@
 
 Esta guía permite instalar TecnoStock desde un repositorio GitHub público en una computadora Windows limpia. El motor SQL Server, FastAPI y Angular se ejecutan localmente en el mismo equipo. No se utiliza Docker.
 
-> **Repositorio:** [https://github.com/JBranez/TecnoStock-Entrega](https://github.com/JBranez/TecnoStock-Entrega)  
+> **Repositorio:** [https://github.com/72535710/TecnoStock](https://github.com/72535710/TecnoStock)  
 > **Requisito para clonar sin iniciar sesión:** el repositorio debe ser público. La descarga anónima por HTTPS no requiere GitHub CLI ni `gh auth login`.
 
 ## 1. Requisitos que deben instalarse antes de `run.ps1`
@@ -145,7 +145,7 @@ Resultados esperados:
 
 El propietario debe realizar una sola vez este cambio desde GitHub:
 
-1. Abre [JBranez/TecnoStock-Entrega](https://github.com/JBranez/TecnoStock-Entrega).
+1. Abre [72535710/TecnoStock](https://github.com/72535710/TecnoStock).
 2. Entra en **Settings → General**.
 3. Desplázate hasta **Danger Zone**.
 4. Pulsa **Change repository visibility**.
@@ -169,7 +169,7 @@ Cuando GitHub indique que el repositorio es público, abre una ventana nueva de 
 
 ```powershell
 New-Item -ItemType Directory -Path 'C:\Dev' -Force | Out-Null
-git clone https://github.com/JBranez/TecnoStock-Entrega.git C:\Dev\TecnoStock
+git clone https://github.com/72535710/TecnoStock.git C:\Dev\TecnoStock
 Set-Location C:\Dev\TecnoStock
 ```
 

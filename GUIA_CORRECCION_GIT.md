@@ -17,7 +17,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 & "$env:USERPROFILE\Downloads\Inicializar-Publicar-TecnoStock-REST-Corregido.ps1" `
   -ProjectPath "C:\Dev\TecnoStock" `
-  -RepositoryFullName "JBranez/TecnoStock-Entrega" `
+  -RepositoryFullName "72535710/TecnoStock" `
   -Visibility private
 ```
 
@@ -33,7 +33,7 @@ La salida anterior confirma:
 - `C:\Dev\TecnoStock\.git` existe.
 - La rama actual es `main`, sin commits.
 - Los archivos del proyecto aparecen como `untracked`.
-- El remoto `JBranez/TecnoStock-Entrega` aún no se ha creado o no es visible.
+- El remoto `72535710/TecnoStock` aún no se ha creado o no es visible.
 
 ## Verificación posterior
 
@@ -43,8 +43,8 @@ Cuando termine correctamente, ejecuta:
 git status
 git branch -vv
 git log --graph --oneline --decorate --all -40
-gh api repos/JBranez/TecnoStock-Entrega --jq .full_name
-gh pr list --repo JBranez/TecnoStock-Entrega --state all
+gh api repos/72535710/TecnoStock --jq .full_name
+gh pr list --repo 72535710/TecnoStock --state all
 ```
 
 Todos los commits que genere el script tendrán las fechas reales de la ejecución. El historial representa una reconstrucción organizada del estado actual del código, no una bitácora de trabajo de días anteriores.

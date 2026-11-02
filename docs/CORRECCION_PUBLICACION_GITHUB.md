@@ -9,7 +9,7 @@ La salida de PowerShell muestra:
 - `C:\Dev\TecnoStock\.git` ya existe y Git reconoce la rama `main`.
 - Aún no se ha creado ningún commit: `No commits yet on main`.
 - Los archivos del proyecto siguen como `untracked`; no se han perdido.
-- `JBranez/TecnoStock-Entrega` no existe o no es visible para esa sesión.
+- `72535710/TecnoStock` no existe o no es visible para esa sesión.
 
 El primer script se detuvo en la etapa de creación del repositorio remoto mediante `gh repo create`. Esta versión cambia esa operación por la API REST de GitHub con `gh api`.
 
@@ -25,7 +25,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 
 & "$env:USERPROFILE\Downloads\Inicializar-Publicar-TecnoStock-REST.ps1" `
   -ProjectPath "C:\Dev\TecnoStock" `
-  -RepositoryFullName "JBranez/TecnoStock-Entrega" `
+  -RepositoryFullName "72535710/TecnoStock" `
   -Visibility private
 ```
 
@@ -46,13 +46,13 @@ gh api --method POST user/repos `
 Verifica que ahora existe:
 
 ```powershell
-gh api repos/JBranez/TecnoStock-Entrega --jq .full_name
+gh api repos/72535710/TecnoStock --jq .full_name
 ```
 
 Debe devolver:
 
 ```text
-JBranez/TecnoStock-Entrega
+72535710/TecnoStock
 ```
 
 Después ejecuta el script corregido. Como el repositorio Git local está vacío y sin commits, continuará desde `main`.
@@ -72,8 +72,8 @@ Para un repositorio privado, los tokens clásicos necesitan el alcance `repo` pa
 git status
 git branch -vv
 git log --graph --oneline --decorate --all -40
-gh repo view JBranez/TecnoStock-Entrega
-gh pr list --repo JBranez/TecnoStock-Entrega --state all
+gh repo view 72535710/TecnoStock
+gh pr list --repo 72535710/TecnoStock --state all
 ```
 
 Los commits se crearán con las fechas reales de la ejecución. El historial se presenta como una organización modular del estado actual, no como una bitácora pasada.
