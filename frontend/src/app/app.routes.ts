@@ -1,38 +1,27 @@
 import { Routes } from '@angular/router';
-import { DashboardPage } from './pages/dashboard/dashboard';
-import { SectionPlaceholderPage } from './pages/section-placeholder/section-placeholder';
+import { authGuard } from './core/guards/auth.guard';
+import { guestGuard } from './core/guards/guest.guard';
 
 export const routes: Routes = [
-  { path: '', component: DashboardPage, title: 'Dashboard | TecnoStock' },
   {
-    path: 'productos',
-    component: SectionPlaceholderPage,
-    title: 'Productos | TecnoStock',
-    data: { title: 'Productos', description: 'Consulta y organiza el catálogo de equipos y accesorios.' },
+    path: 'login',
+    canActivate: [guestGuard],
+    loadComponent: () => import('./features/auth/login.page').then((m) => m.LoginPage),
+    title: 'Iniciar sesión | TecnoStock',
   },
   {
-    path: 'categorias',
-    component: SectionPlaceholderPage,
-    title: 'Categorías | TecnoStock',
-    data: { title: 'Categorías', description: 'Explora las familias de productos del inventario.' },
+    path: '',
+    canActivate: [authGuard],
+    children: [
+      { path: '', loadComponent: () => import('./features/dashboard/dashboard.page').then((m) => m.DashboardPage), title: 'Dashboard | TecnoStock' },
+      { path: 'categorias', loadComponent: () => import('./features/categorias/categorias.page').then((m) => m.CategoriasPage), title: 'Categorías | TecnoStock' },
+      { path: 'productos', loadComponent: () => import('./features/productos/productos.page').then((m) => m.ProductosPage), title: 'Productos | TecnoStock' },
+      { path: 'productos/nuevo', loadComponent: () => import('./features/productos/producto-form.page').then((m) => m.ProductoFormPage), title: 'Nuevo producto | TecnoStock' },
+      { path: 'productos/:id/editar', loadComponent: () => import('./features/productos/producto-form.page').then((m) => m.ProductoFormPage), title: 'Editar producto | TecnoStock' },
+      { path: 'movimientos', loadComponent: () => import('./features/movimientos/movimientos.page').then((m) => m.MovimientosPage), title: 'Movimientos | TecnoStock' },
+      { path: 'historial', loadComponent: () => import('./features/historial/historial.page').then((m) => m.HistorialPage), title: 'Historial | TecnoStock' },
+      { path: 'consultas', loadComponent: () => import('./features/stock-bajo/stock-bajo.page').then((m) => m.StockBajoPage), title: 'Stock bajo | TecnoStock' },
+      { path: '**', redirectTo: '' },
+    ],
   },
-  {
-    path: 'movimientos',
-    component: SectionPlaceholderPage,
-    title: 'Movimientos | TecnoStock',
-    data: { title: 'Movimientos', description: 'Revisa entradas y salidas registradas en el sistema.' },
-  },
-  {
-    path: 'historial',
-    component: SectionPlaceholderPage,
-    title: 'Historial | TecnoStock',
-    data: { title: 'Historial', description: 'Consulta la actividad reciente del inventario.' },
-  },
-  {
-    path: 'consultas',
-    component: SectionPlaceholderPage,
-    title: 'Consultas e indicadores | TecnoStock',
-    data: { title: 'Consultas e indicadores', description: 'Visualiza consultas e indicadores del inventario.' },
-  },
-  { path: '**', redirectTo: '' },
 ];

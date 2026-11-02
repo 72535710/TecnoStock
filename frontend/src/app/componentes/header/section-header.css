@@ -33,7 +33,7 @@ h1 {
   line-height: 1.55;
 }
 
-.demo-badge {
+.live-badge {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -47,7 +47,7 @@ h1 {
   font-weight: 700;
 }
 
-.demo-badge span {
+.live-badge span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
